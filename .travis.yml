@@ -3,7 +3,6 @@ env:
     secure: "GS4RMRCf/38R4Oh/L/O8hZgJYsQ9dqlaCeV+3NJwnFLbtPvR9Th5jO+njsYXTHYbsJcIlffHnE5fSp0e729rKSeijBLXfeBJTWXvOccEHhd5mQhWZVgiIMhhZzTRzYhBLqEC8/hBvRJhSdxFTKiEFIdBoYVZ9b51okUqI5dOh6XCgPOkhP0e0lW/KXiqQRm+VUhaEF/drmpR2IFmSqqmic0uNTSBSYON6e7NaZ0hRPwexOLnMe4eMMpTaw4lX0S0ZoUsu28Rg470hJsezL+nDyon6YAKZL9HODXg33lGaLt5VTJTFhqdfIMxjFaHx+o17dSV75KMo/snJqcbUT8hVEm6/Irhh2UcyB38q1c40fZklITueLh+LMOLxxu/K8ZKaNqgEbJJg2fNSpRiXHLyYtJHHitVRbvWnV2PvQpiUaIByYC++LShETdXzxVS6eWPn45jUQULUSolC4fy3Zqw/RgW/VnZv+Xi7zRf//UY/j1c+9rjAD4nVQdDqO5o/mMc64V81XbC+ODUtev1Kpp5x+DvP+OqZZr9u0SZPPQk+wV/kyZ7w7QYIjG1229Js23nz0PYz8CgH/eEQ5XYJ+pVzxYkrMAywmDFMrRCLrpD0sW9Niu1N/fw+1bdkWUcfDsmsoWuVlbW1Y4FTQ1AuTh1LYV0nw2L3/nuB6UAxufMxF4="
 script:
 - echo "Do some testing"
-before_deploy:
 - echo $TRAVIS_BUILD_NUMBER > VERSION
 - git add VERSION
 - git commit -m "Updating version number [skip ci]"
@@ -15,3 +14,5 @@ deploy:
   provider: releases
   api_key: "$OAUTH_TOKEN"
   file: README.md
+  on:
+    tags: true

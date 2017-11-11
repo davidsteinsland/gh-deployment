@@ -8,7 +8,7 @@ before_deploy:
 - git add VERSION
 - git commit -m "Updating version number [skip ci]"
 - git tag -am 'automatic tag' $TRAVIS_BUILD_NUMBER
-- git push --tags https://$OAUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG
+- git push --tags https://$OAUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG HEAD:master
 notifications:
   email: false
 deploy:

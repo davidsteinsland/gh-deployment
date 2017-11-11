@@ -4,11 +4,11 @@ env:
 script:
 - echo "Do some testing"
 before_deploy:
+- echo $TRAVIS_BUILD_NUMBER > VERSION
+- git add VERSION
+- git commit -m "Updating version number [skip ci]"
 - git tag -am 'automatic tag' $TRAVIS_BUILD_NUMBER
 - git push -q https://$OAUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG --tags
-branches:
-  only:
-  - master
 notifications:
   email: false
 deploy:

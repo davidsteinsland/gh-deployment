@@ -15,4 +15,4 @@ deploy:
   api_key: "$OAUTH_TOKEN"
   file: README.md
   on:
-    tags: true
+    branch: master

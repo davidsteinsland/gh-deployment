@@ -13,6 +13,7 @@ notifications:
   email: false
 deploy:
   provider: releases
-  api_key:
-    secure: "KyPnBbO4fcy5oq3fQa6B6sVPZFrf1Xj+U9Ks50X5jOqv8woI6Y9SvOmvi1SqQJ0vU7spK9/2//0d/ft8SursIM4hcfP9H2K6m1bcWNkOWb7w2hfHzBfB7/s19Vu9OQwwy7/0XNS8Ip54QLXqEXMA+EfKf85ebdUXE0sdBBXN1DsICT8EGSJ0coxNJf2bLVGWHzsEZArxrZOkGt6g8uGlXEx1dvBxFBvhpzH1KwcagtfdnifRC1dugHjZsuapOxqeFynUZzFX57ob8qPVXAdDL6w4AAxM2uw/mc1InMOtyj45dj6SMgSmS67W5YbMQaz7eP7b/zxQbA95A/U+EebXKjDFVDpoWw2mPo2UybbL8rk0oP0TmVFLH9Hc6aC7rbToQ+6JxHDdGKm69xsWSNcutC2QqSviCyxdgOzpVGLkr8GhWNVPtAGMvkjs6ygGWoMpVauJuK/ummZfIJs96mQAEy9nWFxTDtWbuVtoBXGNLv7wT2adBC0YOSMNeL2UQA8sT89Tln0iFvgOQ0ygfGIUFEXNzRAiuViRpkbOxyRhs4YOU6bwXFN/jz4jDNO0nETD9Od7BftnSyfJvOZHv97dua4ACIGlnspFpqzN2m9tf8eoJULiD9bJq1ahFS8j5j4ocenbyfuHdZHEYOSkgqJvMP7JKi5P1Y1HNvMbmKBJ2+Y="
+  api_key: "$OAUTH_TOKEN"
   file: README.md
+  on:
+    tags: true

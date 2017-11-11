@@ -1,0 +1,18 @@
+env:
+  global:
+    secure: "GS4RMRCf/38R4Oh/L/O8hZgJYsQ9dqlaCeV+3NJwnFLbtPvR9Th5jO+njsYXTHYbsJcIlffHnE5fSp0e729rKSeijBLXfeBJTWXvOccEHhd5mQhWZVgiIMhhZzTRzYhBLqEC8/hBvRJhSdxFTKiEFIdBoYVZ9b51okUqI5dOh6XCgPOkhP0e0lW/KXiqQRm+VUhaEF/drmpR2IFmSqqmic0uNTSBSYON6e7NaZ0hRPwexOLnMe4eMMpTaw4lX0S0ZoUsu28Rg470hJsezL+nDyon6YAKZL9HODXg33lGaLt5VTJTFhqdfIMxjFaHx+o17dSV75KMo/snJqcbUT8hVEm6/Irhh2UcyB38q1c40fZklITueLh+LMOLxxu/K8ZKaNqgEbJJg2fNSpRiXHLyYtJHHitVRbvWnV2PvQpiUaIByYC++LShETdXzxVS6eWPn45jUQULUSolC4fy3Zqw/RgW/VnZv+Xi7zRf//UY/j1c+9rjAD4nVQdDqO5o/mMc64V81XbC+ODUtev1Kpp5x+DvP+OqZZr9u0SZPPQk+wV/kyZ7w7QYIjG1229Js23nz0PYz8CgH/eEQ5XYJ+pVzxYkrMAywmDFMrRCLrpD0sW9Niu1N/fw+1bdkWUcfDsmsoWuVlbW1Y4FTQ1AuTh1LYV0nw2L3/nuB6UAxufMxF4="
+script:
+- echo "Do some testing"
+before_deploy:
+- git tag -am 'automatic tag' $TRAVIS_BUILD_NUMBER
+- git push -q https://$OAUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG --tags
+branches:
+  only:
+  - master
+notifications:
+  email: false
+deploy:
+  provider: releases
+  api_key:
+    secure: "KyPnBbO4fcy5oq3fQa6B6sVPZFrf1Xj+U9Ks50X5jOqv8woI6Y9SvOmvi1SqQJ0vU7spK9/2//0d/ft8SursIM4hcfP9H2K6m1bcWNkOWb7w2hfHzBfB7/s19Vu9OQwwy7/0XNS8Ip54QLXqEXMA+EfKf85ebdUXE0sdBBXN1DsICT8EGSJ0coxNJf2bLVGWHzsEZArxrZOkGt6g8uGlXEx1dvBxFBvhpzH1KwcagtfdnifRC1dugHjZsuapOxqeFynUZzFX57ob8qPVXAdDL6w4AAxM2uw/mc1InMOtyj45dj6SMgSmS67W5YbMQaz7eP7b/zxQbA95A/U+EebXKjDFVDpoWw2mPo2UybbL8rk0oP0TmVFLH9Hc6aC7rbToQ+6JxHDdGKm69xsWSNcutC2QqSviCyxdgOzpVGLkr8GhWNVPtAGMvkjs6ygGWoMpVauJuK/ummZfIJs96mQAEy9nWFxTDtWbuVtoBXGNLv7wT2adBC0YOSMNeL2UQA8sT89Tln0iFvgOQ0ygfGIUFEXNzRAiuViRpkbOxyRhs4YOU6bwXFN/jz4jDNO0nETD9Od7BftnSyfJvOZHv97dua4ACIGlnspFpqzN2m9tf8eoJULiD9bJq1ahFS8j5j4ocenbyfuHdZHEYOSkgqJvMP7JKi5P1Y1HNvMbmKBJ2+Y="
+  file: README.md
